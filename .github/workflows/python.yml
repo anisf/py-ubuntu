@@ -61,9 +61,7 @@ jobs:
           context: python
           file: ./python/${{ matrix.img_purpose }}/Dockerfile
           tags: anisfathallah/py-ubuntu:${{ matrix.img_purpose }}, anisfathallah/py-ubuntu:${{ matrix.img_purpose }}-${{ github.ref }}
-          labels:
-          - python_version: ${{ steps.run_tests.outputs.python_version }}
-          - pip_version: ${{ steps.run_tests.outputs.pip_version }}
+          labels: python_version:${{ steps.run_tests.outputs.python_version }}, pip_version:${{ steps.run_tests.outputs.pip_version }}
 
       - name: Run Trivy vulnerability scanner
         uses: aquasecurity/trivy-action@master
