@@ -60,7 +60,7 @@ jobs:
           push: true
           context: ${{ matrix.img_purpose }}
           file: ./${{ matrix.img_purpose }}/Dockerfile
-          tags: anisfathallah/py-ubuntu:${{ matrix.img_purpose }}, anisfathallah/py-ubuntu:${{ matrix.img_purpose }}-${{ github.ref }}
+          tags: anisfathallah/py-ubuntu:${{ matrix.img_purpose }}
           labels: python_version:${{ steps.run_tests.outputs.python_version }}, pip_version:${{ steps.run_tests.outputs.pip_version }}
 
       - name: Run Trivy vulnerability scanner
