@@ -35,7 +35,7 @@ jobs:
         with:
           push: false
           context: ${{ matrix.img_purpose }}
-          file: ./python/${{ matrix.img_purpose }}/Dockerfile
+          file: ./${{ matrix.img_purpose }}/Dockerfile
           tags: anisfathallah/py-ubuntu:${{ matrix.img_purpose }}
           load: true
 
@@ -59,7 +59,7 @@ jobs:
         with:
           push: true
           context: ${{ matrix.img_purpose }}
-          file: ./python/${{ matrix.img_purpose }}/Dockerfile
+          file: ./${{ matrix.img_purpose }}/Dockerfile
           tags: anisfathallah/py-ubuntu:${{ matrix.img_purpose }}, anisfathallah/py-ubuntu:${{ matrix.img_purpose }}-${{ github.ref }}
           labels: python_version:${{ steps.run_tests.outputs.python_version }}, pip_version:${{ steps.run_tests.outputs.pip_version }}
 
