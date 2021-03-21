@@ -50,8 +50,6 @@ jobs:
             cd /workspace
             python -V
             pip -V
-            echo "::set-output name=python_version::$(python3 -c "print(__import__('platform').python_version())")"
-            echo "::set-output name=pip_version::$(python3 -c "print(__import__('pkg_resources').get_distribution('pip').version)")"
 
       - name: Build python image
         id: docker_push
@@ -61,7 +59,6 @@ jobs:
           context: ${{ matrix.img_purpose }}
           file: ./${{ matrix.img_purpose }}/Dockerfile
           tags: anisfathallah/py-ubuntu:${{ matrix.img_purpose }}
-          labels: python_version:${{ steps.run_tests.outputs.python_version }}, pip_version:${{ steps.run_tests.outputs.pip_version }}
 
       - name: Run Trivy vulnerability scanner
         uses: aquasecurity/trivy-action@master
