@@ -9,7 +9,7 @@ RUN apt update && DEBIAN_FRONTEND=noninteractive apt install -y python3-pip \
   && mkdir -p /home/py-user/data \
   && chown -R py-user:py-user /home/py-user
 
-# Use C.UTF-8 locale to avoid issues with ASCII encoding
+# Use C.UTF-8 locale to avoid issues with ASCII
 ENV LC_ALL=C.UTF-8
 ENV LANG=C.UTF-8
 
